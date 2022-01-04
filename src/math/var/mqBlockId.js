@@ -1,0 +1,1 @@
+export default 'mathquill-block-id'
