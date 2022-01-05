@@ -5,6 +5,7 @@ import L from '../../var/L.js'
 import R from '../../var/R.js'
 import VanillaSymbol from '../VanillaSymbol.js'
 import LatexCmds from '../../var/LatexCmds.js'
+import {TextBlock} from '../text.js'
 /****************************************
  * Input box to type backslash commands
  ***************************************/

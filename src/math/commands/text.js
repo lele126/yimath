@@ -1,9 +1,16 @@
 import P from '../p.js'
 import MathCommand from './MathCommand.js'
-import MathBlock from './math.js'
+import MathBlock from './MathBlock.js'
 import RootMathBlock from './RootMathBlock.js'
 import LatexCmds from '../var/LatexCmds.js'
 import API from '../var/API.js'
+import Node from '../Node.js'
+import Fragment from '../Fragment.js'
+import L from '../var/L.js'
+import R from '../var/R.js'
+import $ from '../$.js'
+import Parser from '../services/parser.util.js'
+import {pray} from '../intro.js'
 /*************************************************
  * Abstract classes of text blocks
  ************************************************/
@@ -14,7 +21,7 @@ import API from '../var/API.js'
  * opposed to hierchical, nested, tree-structured math.
  * Wraps a single HTMLSpanElement.
  */
-var TextBlock = P(Node, function(_, super_) {
+export var TextBlock = P(Node, function(_, super_) {
   _.ctrlSeq = '\\text';
 
   _.replaces = function(replacedText) {

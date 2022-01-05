@@ -1,4 +1,6 @@
 import Controller from '../controller.js'
+import L from '../var/L.js'
+import R from '../var/R.js'
 /***********************************************
  * Horizontal panning for editable fields that
  * overflow their width

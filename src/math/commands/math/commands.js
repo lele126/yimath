@@ -11,11 +11,16 @@ import Fragment from '../../Fragment.js'
 import MathBlock from '../MathBlock.js'
 import min from '../../var/min.js'
 import Symbol from '../Symbol.js'
+import Point from '../../Point.js'
+import $ from '../../$.js'
+import mqBlockId from '../../var/mqBlockId.js'
+import Parser from '../../services/parser.util.js'
+import {latexMathParser} from '../../services/latex.js'
 /***************************
  * Commands and Operators.
  **************************/
 
-var scale, // = function(jQ, x, y) { ... }
+var scale; // = function(jQ, x, y) { ... }
 //will use a CSS 2D transform to scale the jQuery-wrapped HTML elements,
 //or the filter matrix transform fallback for IE 5.5-8, or gracefully degrade to
 //increasing the fontSize to match the vertical Y scaling factor.
@@ -23,8 +28,8 @@ var scale, // = function(jQ, x, y) { ... }
 //ideas from http://github.com/louisremi/jquery.transform.js
 //see also http://msdn.microsoft.com/en-us/library/ms533014(v=vs.85).aspx
 
-  forceIERedraw = noop,
-  div = document.createElement('div'),
+  export var forceIERedraw = noop;
+  var div = document.createElement('div'),
   div_style = div.style,
   transformPropNames = {
     transform:1,
@@ -169,7 +174,7 @@ var Class = LatexCmds['class'] = P(MathCommand, function(_, super_) {
   };
 });
 
-var SupSub = P(MathCommand, function(_, super_) {
+export var SupSub = P(MathCommand, function(_, super_) {
   _.ctrlSeq = '_{...}^{...}';
   _.createLeftOf = function(cursor) {
     if (!this.replacedFragment && !cursor[L] && cursor.options.supSubsRequireOperand) return;
@@ -374,7 +379,7 @@ LatexCmds['^'] = P(SupSub, function(_, super_) {
   };
 });
 
-var SummationNotation = P(MathCommand, function(_, super_) {
+export var SummationNotation = P(MathCommand, function(_, super_) {
   _.init = function(ch, html) {
     var htmlTemplate =
       '<span class="mq-large-operator mq-non-leaf">'
@@ -594,7 +599,7 @@ function DelimsMixin(_, super_) {
 // Round/Square/Curly/Angle Brackets (aka Parens/Brackets/Braces)
 //   first typed as one-sided bracket with matching "ghost" bracket at
 //   far end of current block, until you type an opposing one
-var Bracket = P(P(MathCommand, DelimsMixin), function(_, super_) {
+export var Bracket = P(P(MathCommand, DelimsMixin), function(_, super_) {
   _.init = function(side, open, close, ctrlSeq, end) {
     super_.init.call(this, '\\left'+ctrlSeq, undefined, [open, close]);
     this.side = side;

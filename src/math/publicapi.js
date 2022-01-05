@@ -264,7 +264,6 @@ export function getInterface(v) {
   for (var kind in API) (function(kind, defAPIClass) {
     var APIClass = APIClasses[kind] = defAPIClass(APIClasses);
     MQ[kind] = function(el, opts) {
-		console.log(kind)
       var mq = MQ(el);
       if (mq instanceof APIClass || !el || !el.nodeType) return mq;
       var ctrlr = Controller(APIClass.RootBlock(), $(el), Options());

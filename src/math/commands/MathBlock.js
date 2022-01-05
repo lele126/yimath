@@ -6,6 +6,8 @@ import L from '../var/L.js'
 import CharCmds from '../var/CharCmds.js'
 import LatexCmds from '../var/LatexCmds.js'
 import VanillaSymbol  from './VanillaSymbol.js'
+import Parser from '../services/parser.util.js'
+import {latexMathParser } from '../services/latex.js'
 var MathBlock = P(MathElement, function(_, super_) {
   _.join = function(methodName) {
     return this.foldChildren('', function(fold, child) {

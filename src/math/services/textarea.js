@@ -4,6 +4,7 @@ import saneKeyboardEvents from './saneKeyboardEvents.util.js'
 import $ from '../$.js'
 import {Letter} from '../commands/math/basicSymbols.js'
 import jQuery from 'jquery'
+import {forceIERedraw} from '../commands/math/commands.js'
 /*********************************************
  * Manage the MathQuill instance's textarea
  * (as owned by the Controller)

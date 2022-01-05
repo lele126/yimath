@@ -4,6 +4,7 @@ import $ from './$.js'
 import L from './var/L.js'
 import R from './var/R.js'
 import {prayDirection} from './tree.js'
+import {pray} from './intro.js'
 /********************************************
  * Cursor and Selection "singleton" classes
  *******************************************/

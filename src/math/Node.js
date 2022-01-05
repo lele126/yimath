@@ -5,6 +5,7 @@ import $ from './$.js'
 import {iterator} from './intro.js'
 import Fragment from './Fragment.js'
 import {prayDirection} from './tree.js'
+import Selection from './Selection.js'
 var Node = P(function(_) {
   _[L] = 0;
   _[R] = 0
