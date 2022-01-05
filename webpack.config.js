@@ -1,7 +1,7 @@
 const path = require("path");
 module.exports = {
 	performance: { hints: false },
-    mode: 'production', // 生产环境，压缩代码
+    mode: 'development', // 生产环境，压缩代码
     // 出口对象中，属性为输出的js文件名，属性值为入口文件
     entry: ["./src/yimath.js","./src/test.js"], //入口文件,从项目根目录指定
     output: { //输出路径和文件名，使用path模块resolve方法将输出路径解析为绝对路径
