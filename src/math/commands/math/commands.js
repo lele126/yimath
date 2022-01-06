@@ -581,7 +581,19 @@ var DiacriticAbove = P(MathCommand, function(_, super_) {
     super_.init.call(this, ctrlSeq, htmlTemplate, textTemplate);
   };
 });
-LatexCmds.vec = bind(DiacriticAbove, '\\vec', '&rarr;', ['vec(', ')']);
+var DiacriticDown = P(MathCommand, function(_, super_) {
+  _.init = function(ctrlSeq, symbol, textTemplate) {
+    var htmlTemplate =
+      '<span class="mq-non-leaf">'
+      +   '<span class="mq-diacritic-down">'+symbol+'</span>'
+      +   '<span class="mq-diacritic-down-stem">&0</span>'
+      + '</span>'
+    ;
+
+    super_.init.call(this, ctrlSeq, htmlTemplate, textTemplate);
+  };
+});
+LatexCmds.vec = bind(DiacriticDown, '\\vec', '&rarr;', ['vec(', ')']);
 LatexCmds.tilde = bind(DiacriticAbove, '\\tilde', '~', ['tilde(', ')']);
 
 function DelimsMixin(_, super_) {
