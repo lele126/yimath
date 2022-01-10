@@ -425,6 +425,18 @@
 }
 .mq-diacritic-down{
 	display: block;
+	border-bottom: 1.5px solid #000000;
+	height: 3px;
+	line-height: 3px;
+	position: relative;
+}
+.mq-diacritic-down-content{
+	color:#000000;
+	position: absolute;
+	height: 3px;
+	line-height: 3px;
+	right:-1px;
+	bottom:0px;
 }
 .mq-diacritic-down-stem{
 	display: block;

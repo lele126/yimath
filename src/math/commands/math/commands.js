@@ -585,8 +585,8 @@ var DiacriticDown = P(MathCommand, function(_, super_) {
   _.init = function(ctrlSeq, symbol, textTemplate) {
     var htmlTemplate =
       '<span class="mq-non-leaf">'
-      +   '<span class="mq-diacritic-down">'+symbol+'</span>'
-      +   '<span class="mq-diacritic-down-stem">&0</span>'
+      +   '<span class="mq-diacritic-down"><span class="mq-diacritic-down-content">'+symbol+'</span></span>'
+      +   '<span class="mq-diacritic-downstem">&0</span>'
       + '</span>'
     ;
 
